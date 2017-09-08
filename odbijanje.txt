@@ -1,0 +1,28 @@
+ boolean hit=false;
+        double xblock=b.getTranslateX();
+        double yblock=b.getTranslateY();
+        System.out.println("ugao je "+lopta.getAngle());
+        
+        System.out.println("KORDINATE LOPTE SU"+lopta.getTranslateX()+"  "+lopta.getTranslateY());
+        System.out.println("KORDINATE BLOKA SU"+xblock+"  "+yblock);
+         if(-lopta.getTranslateX()+xblock+25+8>=0&&+lopta.getTranslateX()-xblock-25-8<=0){
+             lopta.setAngle(horizontalniSudar(lopta.getAngle()));
+             hit=true;
+            System.out.println("horizontalno");
+        }
+         else if(-lopta.getTranslateY()+yblock+12.5+8>=0&&lopta.getTranslateY()-yblock-12.5-8<=0){
+           lopta.setAngle(vertikalniSudar(lopta.getAngle())); 
+         System.out.println("verticalno");
+            hit=true;
+        }
+         
+         else{
+             if(Math.abs(Math.cos(lopta.getAngle()*Math.PI/180))>Math.abs(Math.cos(lopta.getAngle()*Math.PI/180))){
+                  lopta.setAngle(horizontalniSudar(lopta.getAngle())); 
+             }else
+                lopta.setAngle(vertikalniSudar(lopta.getAngle())); 
+             hit=true;
+             
+         }
+        return hit;
+       
